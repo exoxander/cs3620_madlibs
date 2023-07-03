@@ -21,8 +21,6 @@ def home(request,id):
         if form.is_valid():
             words = item.Format(form.cleaned_data["inputWords"].split("#"))
 
-    context={"item":words, "form":form}
-
-    
+    context={"item":words, "form":form}    
 
     return render(request, "madlibs/home.html", context)
