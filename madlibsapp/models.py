@@ -6,15 +6,13 @@ class Story(models.Model):
         result = ""
 
         #chunks seperated by input spots
-        sections = self.words.split("<>")
+        sections = self.words.split("#")
 
         #rebuild string with input spots filled
-        for i in sections:
+        for i in range(len(sections)):
             result += sections[i]
             if(i < len(inputWords)):
                 result += inputWords[i]
-            else:
-                result += "<#>"
 
         return result
 

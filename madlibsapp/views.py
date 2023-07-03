@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.shortcuts import redirect
 from .models import *
 from django.template import loader
+from .forms import *
 
 # Create your views here.
 def default(request):
@@ -14,7 +15,14 @@ def home(request,id):
         item = Story.objects.get(pk=1)
 
     words = str(item)
+    form = WordInputForm(request.POST)
 
-    context={"item":words}
+    if(request.method == "POST"):
+        if form.is_valid():
+            words = item.Format(form.cleaned_data["inputWords"].split("#"))
+
+    context={"item":words, "form":form}
+
+    
 
     return render(request, "madlibs/home.html", context)
