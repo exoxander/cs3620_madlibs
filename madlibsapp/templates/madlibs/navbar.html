@@ -9,6 +9,9 @@
     <nav class="navbar navbar-dark bg-dark">
         <a href="#" class="navbar-brand btn btn-dark">Home</a>
         <div class="navbar">
+            {% for link in StoryList %}
+            <a href="{% url 'home' link.id %}" class="btn btn-dark"> {{ link.id }}</a>
+            {% endfor %}
         </div>
     </nav>
     {% block body %}

@@ -1,36 +1,27 @@
 {% extends "madlibs/navbar.html" %}
-<!DOCTYPE html>
-
-<html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <title>Home</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-</head>
-<body>
-    {% block body %}
-    <div class="container">
-        <div>
-            <p>
-                {{ item }}
-            </p>
-        </div>
-        <div>
-            <h3>
-                Enter your words in the text box below, seperated by "#"
-            </h3>
-            <p>
-                it#should#look#like#this
-            </p>
-        </div>
-        <div>
-            <form method="POST">
-                {% csrf_token %}
-                {{ form }}
-                <button type="submit" class="btn btn-success">Submit</button>
-            </form>
-        </div>
+{% block body %}
+<div class="container">
+    <hr />
+    <div>
+        <p>
+            {{ item }}
+        </p>
     </div>
-    {% endblock %}
-</body>
-</html>
+    <hr />
+    <div>
+        <h4>
+            Enter your words in the text box below, seperated by "#"
+        </h4>
+        <p>
+            it#should#look#like#this
+        </p>
+    </div>
+    <div>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form }}
+            <button type="submit" class="btn btn-success">Submit</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
